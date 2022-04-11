@@ -18,6 +18,7 @@ Installatio nécessaire (Dans l'ordre) :
 
 
 Crédit : 
+
 https://github.com/mrzhu-cool/pix2pix-pytorch par @mrzhu 
 
 https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix par @junyanz
