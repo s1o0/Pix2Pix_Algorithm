@@ -1,25 +1,42 @@
-from osgeo import gdal
 from osgeo import gdal,ogr,osr
+import numpy as np
+import matplotlib.pyplot as plt
+import pyproj
 import os
 
-
-#Transition de l'image pleiade vers le lambert
-filename = "IMG_PHR1A_MS_201802121120006_SEN_2710546101-002_R1C1.JP2"
-input_raster = gdal.Open(filename)
-output_raster = "IMG_PHR1A_MS_201802121120006_SEN_2710546101-002_R1C1.JP2"
-warp = gdal.Warp(output_raster,input_raster,dstSRS='EPSG:2154')
-warp = None 
-
-#Obtenir les infos de l'images pleiade transformée
-src = gdal.Open("IMG_PHR1A_MS_201802121120006_SEN_2710546101-002_R1C1.JP2")
-ulx, xres, xskew, uly, yskew, yres  = src.GetGeoTransform()
-lrx = ulx + (src.RasterXSize * xres)
-lry = uly + (src.RasterYSize * yres)
+print("Début......")
+print("*--------------------*")
+#Open the first file (Pleiade)
+file = input("Pleiade File :")
+ds = gdal.Open(file)
+print("Fichier ouvert!")
 
 
-#Crop l'image ign ou avion
-window = (ulx,uly,lrx,lry)
+#On récupère les coordonnées des angles
+ulx, xres, xskew, uly, yskew, yres = ds.GetGeoTransform()
+lrx = ulx + (ds.RasterXSize * xres)
+lry = uly + (ds.RasterYSize * yres)
 
-ds = gdal.Open('IMG_PHR1A_MS_201802121120006_SEN_2710546101-002_R1C1.JP2')
-ds = gdal.Translate('output.tif', ds, projWin = window)
-ds = None
+
+print("Coordonées récupérées!")
+print(str(ulx)+" "+str(uly)+" "+str(lrx)+" "+str(lry)+" ")
+#On traduit ces coordonées
+wgs_leigon = pyproj.Transformer.from_crs(4326,2154)
+#leigon_wgs = pyproj.Transformer.from_crs(2154,4326)
+
+leigValues = wgs_leigon.transform(lrx, lry)
+print(leigValues)
+leigValues2 = wgs_leigon.transform(ulx,uly)
+print(leigValues2)
+print("Coordonées traduites")
+file_ign = input("IGN File :")
+#On cut l'image IGN
+x_min = leigValues[0]
+y_min = leigValues[1]
+x_max = leigValues[2]
+y_max = leigValues[3]
+commande = "gdwalwarp -te "+x_min+" "+y_min+" "+x_max+" "+y_max+" "+file_ign+" "+file_ign
+os.system(commande)
+print("Done ! you can check now")
+print("*-------------------------------*")
+
