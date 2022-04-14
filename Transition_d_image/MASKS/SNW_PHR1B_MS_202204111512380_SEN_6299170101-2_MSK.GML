@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<hma:Mask gml:id="DS_PHR1B_202204111512380_FR1_PX_W072S16_0309_01334_imgsnw_msk" xmlns:gml="http://www.opengis.net/gml" xmlns:hma="http://earth.esa.int/hma" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <gml:name>Snow mask from data-strip DS_PHR1B_202204111512380_FR1_PX_W072S16_0309_01334</gml:name>
+
+  <gml:boundedBy>
+    <gml:Envelope srsName="urn:ogc:def:derivedCRSType:OGC:1.0:image">
+      <gml:lowerCorner>1 1</gml:lowerCorner>
+      <gml:upperCorner>9752 7027</gml:upperCorner>
+    </gml:Envelope>
+  </gml:boundedBy>
+
+  <hma:maskMembers>
+    <hma:MaskFeature gml:id="snow-0-DS_PHR1B_202204111512010_FR1_PX_W072S16_0309_01281-0">
+      <hma:maskType codeSpace="urn:phr:ipu:maskType">SNOW</hma:maskType>
+      <gml:extentOf>
+        <gml:Polygon srsName="urn:ogc:def:derivedCRSType:OGC:1.0:image">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList>9264.37075537076 7027 9680.02898550725 7027 9751.6881352128 6959.26737904543 9751.69337746991 1686.42999052131 9703.5 1622.5 9597.5 1573.5 483.5 0.5 362.5 12.5 260.5 96.5 217.5 238.5 0.5 5304.5 27.5 5436.5 103.5 5534.5 236.5 5584.5 9264.37075537076 7027</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </gml:extentOf>
+    </hma:MaskFeature>
+  </hma:maskMembers>
+
+</hma:Mask>
