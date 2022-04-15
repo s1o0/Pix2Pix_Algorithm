@@ -24,7 +24,7 @@ raster=r'IMG_PHR1B_MS_002/IMG_PHR1B_MS_202104211119066_SEN_6005996101-2_R1C1.JP2
 ds=gdal.Open(raster)
 ext=GetExtent(ds)
 src_srs=osr.SpatialReference()
-src_srs.ImportFromWkt(ds.GetProjection())
+src_srs.ImportFromEPSG(4326)
 #tgt_srs=osr.SpatialReference()
 #tgt_srs.ImportFromEPSG(4326)
 tgt_srs = src_srs.CloneGeogCS()

@@ -1,42 +1,48 @@
 from osgeo import gdal,ogr,osr
-import numpy as np
-import matplotlib.pyplot as plt
-import pyproj
+from pyproj import Proj, transform
 import os
 
-print("Début......")
-print("*--------------------*")
-#Open the first file (Pleiade)
-file = input("Pleiade File :")
-ds = gdal.Open(file)
-print("Fichier ouvert!")
+path_to_dim_pleiade = input("Path to dim file of the pleiade (XML file):")
+path_to_file_pleiade = input("Path to the new file pleiade :")
+
+os.system(f'gdal_translate -of GTiff -co COMPRESS=NONE -co BIGTIFF=IF_NEEDED {path_to_dim_pleiade} {path_to_file_pleiade}')
+
+path_to_ign_data = input("Path to the ign data : ")
+with open(path_to_ign_data, 'r') as fp:
+    # lines to read
+    line_numbers = [8, 10]
+    for i, line in enumerate(fp):
+        # read line 8 and 10
+        if i==8:
+            lhs, rhs = line.split(" ", 1)
+            twoparse = lhs.split(",")
+            x_haut_gauche_string = twoparse[0].replace('(', '')
+            y_haut_gauche_string = twoparse[0].replace(')', '')
+
+            x_haut_gauche = float(x_haut_gauche_string)
+            y_haut_gauche = float(y_haut_gauche_string)
+        if i ==10:
+            lhs, rhs = line.split(" ", 1)
+            twoparse = lhs.split(",")
+            x_bas_droite_string = twoparse[0].replace('(', '')
+            y__bas_droite_string = twoparse[0].replace(')', '')
+
+            x_bas_droite = float(x_haut_gauche_string)
+            y_bas_droite = float(y_haut_gauche_string)
+        if i > 10:
+            # don't read after line 10 to save time
+            break
+
+proj = pyproj.Transformer.from_crs(2154, 4326, always_xy=True)
+x_haut_gauche,y_haut_gauche = proj.transform(x_haut_gauche,y_haut_gauche)
+x_bas_droite,y_bas_droite = proj.transform(x_bas_droite,y_bas_droite)
+
+x_min = min(x_bas_droite,x_haut_gauche)
+x_max = max(x_bas_droite,x_haut_gauche)
+
+y_min = min(y_bas_droite,y_haut_gauche)
+y_max = max(y_bas_droite,y_haut_gauche)
 
 
-#On récupère les coordonnées des angles
-ulx, xres, xskew, uly, yskew, yres = ds.GetGeoTransform()
-lrx = ulx + (ds.RasterXSize * xres)
-lry = uly + (ds.RasterYSize * yres)
-
-
-print("Coordonées récupérées!")
-print(str(ulx)+" "+str(uly)+" "+str(lrx)+" "+str(lry)+" ")
-#On traduit ces coordonées
-wgs_leigon = pyproj.Transformer.from_crs(4326,2154)
-#leigon_wgs = pyproj.Transformer.from_crs(2154,4326)
-
-leigValues = wgs_leigon.transform(lrx, lry)
-print(leigValues)
-leigValues2 = wgs_leigon.transform(ulx,uly)
-print(leigValues2)
-print("Coordonées traduites")
-file_ign = input("IGN File :")
-#On cut l'image IGN
-x_min = leigValues[0]
-y_min = leigValues[1]
-x_max = leigValues[2]
-y_max = leigValues[3]
-commande = "gdwalwarp -te "+x_min+" "+y_min+" "+x_max+" "+y_max+" "+file_ign+" "+file_ign
-os.system(commande)
-print("Done ! you can check now")
-print("*-------------------------------*")
-
+path_to_new_pleiade_tif = input("Path to new pleiade tif")
+os.system(f'gdalwarp -s_srs EPSG:4326 -t_srs EPSG:4326 -te {x_min} {y_min} {x_max} {y_max} -te_srs EPSG:4326 {path_to_file_pleiade} {path_to_new_pleiade_tif}')
