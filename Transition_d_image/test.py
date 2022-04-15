@@ -30,11 +30,11 @@ src_srs.ImportFromWkt(ds.GetProjection())
 tgt_srs = src_srs.CloneGeogCS()
 print("1")
 geo_ext=ReprojectCoords(ext, src_srs, tgt_srs)
-
+print(geo_ext)
 '''
 #####ON TRANSFORME CES COORDONNES DANS LE REFERENTIEL RGF93 (2154)
-inProj = Proj(init='epsg:4326')
-outProj = Proj(init='epsg:2154')
+inProj = Proj('epsg:4326')
+outProj = Proj('epsg:2154')
 x1,y1 = -11705274.6374,4826473.6922
 x2,y2 = transform(inProj,outProj,x1,y1)
 print x2,y2
