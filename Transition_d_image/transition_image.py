@@ -37,13 +37,14 @@ proj = pyproj.Transformer.from_crs(2154, 4326, always_xy=True)
 x_haut_gauche,y_haut_gauche = proj.transform(x_haut_gauche,y_haut_gauche)
 x_bas_droite,y_bas_droite = proj.transform(x_bas_droite,y_bas_droite)
 
+'''
 print("*---------------*")
 print(x_haut_gauche)
 print(y_haut_gauche)
 print()
 print(x_bas_droite)
 print(y_bas_droite)
-
+'''
 
 x_min = min(x_bas_droite,x_haut_gauche)
 x_max = max(x_bas_droite,x_haut_gauche)
@@ -51,6 +52,7 @@ x_max = max(x_bas_droite,x_haut_gauche)
 y_min = min(y_bas_droite,y_haut_gauche)
 y_max = max(y_bas_droite,y_haut_gauche)
 
+'''
 print("*--------------*")
 print()
 print(x_min)
@@ -58,6 +60,6 @@ print(y_min)
 print()
 print(x_max)
 print(y_max)
-
+'''
 path_to_new_pleiade_tif = input("Path to new pleiade tif")
 os.system(f'gdalwarp -s_srs EPSG:4326 -t_srs EPSG:4326 -te {x_min} {y_min} {x_max} {y_max} -te_srs EPSG:4326 {path_to_file_pleiade} {path_to_new_pleiade_tif}')
