@@ -1,5 +1,7 @@
 from osgeo import gdal,ogr,osr
+from pyproj import Proj, transform
 
+#####ON ESSAYE D'OBTENIR LES COORDONEES DANS LE REFERENTIEL WGS84 (4326) DES 4 COINS DE L'IMAGE PLEIADE
 def GetExtent(ds):
     """ Return list of corner coordinates from a gdal Dataset """
     xmin, xpixel, _, ymax, _, ypixel = ds.GetGeoTransform()
@@ -28,3 +30,21 @@ src_srs.ImportFromWkt(ds.GetProjection())
 tgt_srs = src_srs.CloneGeogCS()
 print("1")
 geo_ext=ReprojectCoords(ext, src_srs, tgt_srs)
+
+'''
+#####ON TRANSFORME CES COORDONNES DANS LE REFERENTIEL RGF93 (2154)
+inProj = Proj(init='epsg:4326')
+outProj = Proj(init='epsg:2154')
+x1,y1 = -11705274.6374,4826473.6922
+x2,y2 = transform(inProj,outProj,x1,y1)
+print x2,y2
+
+
+#####ON VEUT CUT L'IMAGE IGN MNT EN UTILISANT LES COORDONNES DE LIMAGE PLEIDA
+upper_left_x = 699934.584491
+upper_left_y = 6169364.0093
+lower_right_x = 700160.946739
+lower_right_y = 6168703.00544
+window = (upper_left_x,upper_left_y,lower_right_x,lower_right_y)
+
+gdal.Translate('output_crop_raster.tif', 'input_raster.tif', projWin = window)'''
