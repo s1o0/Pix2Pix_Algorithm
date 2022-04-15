@@ -1,5 +1,5 @@
 from osgeo import gdal,ogr,osr
-from pyproj import Proj, transform
+import pyproj
 import os
 
 path_to_dim_pleiade = input("Path to dim file of the pleiade (XML file):")
@@ -17,7 +17,7 @@ with open(path_to_ign_data, 'r') as fp:
             lhs, rhs = line.split(" ", 1)
             twoparse = lhs.split(",")
             x_haut_gauche_string = twoparse[0].replace('(', '')
-            y_haut_gauche_string = twoparse[0].replace(')', '')
+            y_haut_gauche_string = twoparse[1].replace(')', '')
 
             x_haut_gauche = float(x_haut_gauche_string)
             y_haut_gauche = float(y_haut_gauche_string)
@@ -25,7 +25,7 @@ with open(path_to_ign_data, 'r') as fp:
             lhs, rhs = line.split(" ", 1)
             twoparse = lhs.split(",")
             x_bas_droite_string = twoparse[0].replace('(', '')
-            y__bas_droite_string = twoparse[0].replace(')', '')
+            y__bas_droite_string = twoparse[1].replace(')', '')
 
             x_bas_droite = float(x_haut_gauche_string)
             y_bas_droite = float(y_haut_gauche_string)
