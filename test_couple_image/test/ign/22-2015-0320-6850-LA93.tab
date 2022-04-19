@@ -1,0 +1,13 @@
+!table
+!version 300
+!charset WindowsLatin1
+
+Definition Table
+File "22-2015-0320-6850-LA93.ecw"
+Type "RASTER"
+(320000.00,6850000.00) (0,0) Label "Pt 1",
+(325000.00,6850000.00) (10000,0) Label "Pt 2",
+(325000.00,6845000.00) (10000,10000) Label "Pt 3",
+(320000.00,6845000.00) (0,10000) Label "Pt 4"
+CoordSys Earth Projection 2003, 33, 7, 3, 46.5, 44, 49.00000000001, 700000, 6600000, -792421, 5278231, 3520778, 9741029
+Units "m"
