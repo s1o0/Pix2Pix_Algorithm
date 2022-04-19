@@ -4,8 +4,7 @@ Repo' contenant le code source utilisé pour le projet HIRACLES
 
 <h3 align="left">Etat actuel du projet : </h3> 
 
-Je vais tester le code présent sur le repo suivant : https://github.com/mrzhu-cool/pix2pix-pytorch qui semble être assez compréhensible et qui pourra potentiellement être réutilisé et adapté pour générer des images pléiades. 
-Je vais donc tester cet algorithme avec le jeu de données fourni par l'auteur, tout en préparant le jeu de données avec les images satelites et les images Pléiades. Si le test est convaincant avec le jeu de données fournies par l'auteur du code, je pourrais essayer d'appliquer cet algorithme et d'observer le résultat sur les images satelites. Ce dernier test sera surement utilisé Jeudi et Vendredi 14 et 15 Avril grâce à l'ordinateur mis à disposition car cela apportera une très grande rapidité.
+Après avoir testé l'algorithme de Deep Learning sur le calculateur de l'IUEM, je m'attaque à la préparation du jeu de données. J'ai créer une méthode permettant de pouvoir couper une image pléiade en prennant une image IGN en entrée, pour ainsi obtenir une image pleiade qui possèdera les mêmes 4 coordonées dans chaque coin que l'image IGN. Maintenant, il faut automatiser ce programme pour qu'il puisse réaliser ce travail sur toutes les images IGN à notre disposition.
 
 --------------------------------------------
 -------------------------------------------
