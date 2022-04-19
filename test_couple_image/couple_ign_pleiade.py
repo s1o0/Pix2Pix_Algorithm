@@ -4,9 +4,10 @@ import os
 from os import listdir
 from os.path import isfile, join
 from transition_image import transition_image
+from parse_folder import parse_name_file,parse_folder
 
 path = './test/ign/'
-onlyfiles = os.listdir(path)
+onlyfiles = parse_folder(path)
 
 path = './test/pleiade/'
 onlyfiles2 = os.listdir(path)
@@ -14,8 +15,8 @@ onlyfiles2 = os.listdir(path)
 nb_img = 0
 i=0
 while i < len(onlyfiles): 
-    path_to_ign_img = f'test/ign/{onlyfiles[i]}'
-    path_to_ign_data = f'test/ign/{onlyfiles[i+1]}'
+    path_to_ign_img = f'test/ign/{onlyfiles[i]}.ecw'
+    path_to_ign_data = f'test/ign/{onlyfiles[i]}.tab'
     i = i+2
 
     path_to_file_pleiade = f'pleiade_tif/{nb_img}.tif'
