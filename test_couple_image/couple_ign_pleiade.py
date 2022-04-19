@@ -21,23 +21,23 @@ while i < len(onlyfiles):
     path_to_file_pleiade = f'pleiade_tif/{nb_img}.tif'
     path_to_new_pleiade_tif = f'result/pleiade/{nb_img}.tif'
 
-    path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[0]}'
+    path_to_dim_pleiade = f'test/pleiade/p1/DIM_PHR1A_MS_202107121137240_SEN_5835792201-2.XML'
     transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
     os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
     nb_img+=1
 
 
-    path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[1]}'
+    path_to_dim_pleiade = f'test/pleiade/p2/DIM_PHR1A_MS_202107121137590_SEN_5835793201-2.XML'
     transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
     os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
     nb_img+=1
 
-    path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[2]}'
+    path_to_dim_pleiade = f'test/pleiade/p3/DIM_PHR1A_MS_202107121137328_SEN_5835794201-2.XML'
     transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
     os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
     nb_img+=1
 
-    path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[3]}'
+    '''path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[3]}'
     transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
     os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
     nb_img+=1
@@ -50,7 +50,7 @@ while i < len(onlyfiles):
     path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[5]}'
     transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
     os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
-    nb_img+=1
+    nb_img+=1'''
 
 
 
