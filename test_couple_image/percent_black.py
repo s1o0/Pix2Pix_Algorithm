@@ -17,3 +17,7 @@ def percent_black_pixels(path_to_image):
     print('Number of pixels:', number_of_pixels)
     print('Percentage of black pixels:', number_of_black_pix*100/number_of_pixels)'''
     return number_of_black_pix*100/number_of_pixels
+
+if __name__=='__main__':
+    a=percent_black_pixels('../Transition_d_image/result/final.tif')
+    print(a)
