@@ -29,6 +29,7 @@ def transition_image(path_to_dim_pleiade,path_to_file_pleiade,path_to_ign_data,p
                 y_bas_droite = float(y_bas_droite_string)
             elif i > 10:
                 # don't read after line 10 to save time
+                fp.close()
                 break
 
     proj = pyproj.Transformer.from_crs(2154, 4326, always_xy=True)
