@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<hma:Mask gml:id="DS_PHR1A_202107121137240_FR1_PX_W003N48_0615_01485_imgncn_msk" xmlns:gml="http://www.opengis.net/gml" xmlns:hma="http://earth.esa.int/hma" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <gml:name>Cloud mask from data-strip DS_PHR1A_202107121137240_FR1_PX_W003N48_0615_01485</gml:name>
+
+  <gml:boundedBy>
+    <gml:Envelope srsName="urn:ogc:def:derivedCRSType:OGC:1.0:image">
+      <gml:lowerCorner>1 1</gml:lowerCorner>
+      <gml:upperCorner>6787 7795</gml:upperCorner>
+    </gml:Envelope>
+  </gml:boundedBy>
+
+  <hma:maskMembers>
+    <hma:MaskFeature gml:id="cloud-0-DS_PHR1A_202107121136470_FR1_PX_W003N48_0615_01405-0">
+      <hma:maskType codeSpace="urn:phr:ipu:maskType">CLOUD</hma:maskType>
+      <gml:extentOf>
+        <gml:Polygon srsName="urn:ogc:def:derivedCRSType:OGC:1.0:image">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList>526.101702062025 5810.34879207418 526.431490558143 5807.69369887456 471.109147841016 5763.10456599786 371.506682298521 5764.05255746579 371.056788847884 5764.63953276554 369.230252220104 5764.65504815342 247.393727116043 5923.54665796379 247.390624136415 5925.78103852003 247.073582255509 5926.1944365875 247.070107633479 5928.68749192879 246.862280896114 5928.95846009052 246.705292884734 6041.65105544106 247.447749371181 6042.25050494423 247.42898703099 6056.03834170313 302.623085366028 6100.5897407568 380.054848738956 6088.60478761047 380.656761904229 6088.20989799783 382.340073847454 6087.94834186053 504.192110988146 6007.96014308869 526.598555641686 5827.45173420927 524.387931340918 5825.66941406609 525.938913171003 5813.18351255111 525.805231074954 5813.07573100629 526.140081173562 5810.3797352312 526.101702062025 5810.34879207418</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </gml:extentOf>
+    </hma:MaskFeature>
+  </hma:maskMembers>
+
+</hma:Mask>
