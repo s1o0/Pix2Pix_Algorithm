@@ -29,7 +29,7 @@ while i < len(onlyfiles):
     print(f'Level {i}/{len(onlyfiles)}')
     path_to_ign_img = f'test/ign/{onlyfiles[i]}.ecw'
     path_to_ign_data = f'test/ign/{onlyfiles[i]}.tab'
-    i = i+2
+    i = i+1
 
     path_to_file_pleiade = f'pleiade_tif/{nb_img}.tif'
     path_to_new_pleiade_tif = f'result/pleiade/{nb_img}.tif'
@@ -66,24 +66,3 @@ while i < len(onlyfiles):
     transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
     os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
     nb_img+=1
-
-    '''path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[3]}'
-    transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
-    os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
-    nb_img+=1
-
-    path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[4]}'
-    transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
-    os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
-    nb_img+=1
-
-    path_to_dim_pleiade = f'test/pleiade/{onlyfiles2[5]}'
-    transition_image(path_to_dim_pleiade, path_to_file_pleiade, path_to_ign_data, path_to_new_pleiade_tif)
-    os.system(f'cp {path_to_ign_img} result/ign/{nb_img}.ecw')
-    nb_img+=1'''
-
-
-
-
-
-    
