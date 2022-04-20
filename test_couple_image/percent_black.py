@@ -17,4 +17,3 @@ def percent_black_pixels(path_to_image):
     print('Number of pixels:', number_of_pixels)
     print('Percentage of black pixels:', number_of_black_pix*100/number_of_pixels)'''
     return number_of_black_pix*100/number_of_pixels
-    
