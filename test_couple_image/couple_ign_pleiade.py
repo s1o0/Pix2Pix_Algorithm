@@ -15,15 +15,6 @@ onlyfiles2 = os.listdir(path)
 nb_img = 0
 i=0
 
-while i < len(onlyfiles): 
-    print(f'Level {i}/{len(onlyfiles)}')
-    path_to_ign_img = f'test/ign/{onlyfiles[i]}.ecw'
-    path_to_ign_data = f'test/ign/{onlyfiles[i]}.tab'
-    i = i+1
-
-    path_to_file_pleiade = f'pleiade_tif/{nb_img}.tif'
-    path_to_new_pleiade_tif = f'result/pleiade/{nb_img}.tif'
-    
 
 while i < len(onlyfiles):
     print(f'Level {i}/{len(onlyfiles)}')
