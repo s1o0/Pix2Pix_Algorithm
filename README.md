@@ -15,4 +15,4 @@ python3 test.py --dataset facades --cuda
 ```
 
 # Documentation nécessaire :
-Une documentation a été réalisé via le logiciel Notion, vous pouvez la trouver sur [ce document](https://resonant-tamarillo-324.notion.site/Github-Deep-Learning-43df5891e4994f9c8709aadc810f8307).
+Une documentation a été réalisée via le logiciel Notion, vous pouvez la trouver sur [ce document](https://resonant-tamarillo-324.notion.site/Github-Deep-Learning-43df5891e4994f9c8709aadc810f8307).
