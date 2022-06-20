@@ -3,6 +3,8 @@ Implémentation de l'algorithme Pix2Pix permettant de réalisé le transfert de 
 
 L'algorithme original de Pix2Pix se trouve sur [ce dépôt](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) ou alors vous pouvez également trouver d'autres implémentations sur [ce site](https://phillipi.github.io/pix2pix/)
 
+Pour utiliser l'algorithme vous devez avoir des images au format .PNG ou .jpeg et dont les pixels sont codés en UInt8 (0 - 255)
+
 # Exécution :
 
 Pour exécuter l'entrainement de cet algorithme vous devez exécuter cette commande :
